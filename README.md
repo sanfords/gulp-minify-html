@@ -28,11 +28,11 @@ gulp.task('minify-html', function() {
 });
 ```
 ### Options
-* `empty` - `true, false`: do not remove empty attributes.
-* `cdata` - `true, false`: do not strip CDATA from scripts.
-* `comments` - `true, false`: do not remove comments.
-* `spare` - `true, false`: do not remove redundant attributes.
-* `quotes` - `true, false`: do not remove arbitrary quotes.
+* `empty` - `true` do not remove empty attributes (default is `false`).
+* `cdata` - `true` do not strip CDATA from scripts (default is `false`).
+* `comments` - `true` do not remove comments (default is `false`).
+* `spare` - `true` do not remove redundant attributes (default is `false`).
+* `quotes` - `true` do not remove arbitrary quotes (default is `false`).
 
 
 ## LICENSE
