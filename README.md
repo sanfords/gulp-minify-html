@@ -21,10 +21,9 @@
 var minifyHTML = require('gulp-minify-html');
 
 gulp.task('minify-html', function() {
-
-  gulp.files('./static/html/*.html')
+  gulp.src('./static/html/*.html')
     .pipe(minifyHTML(opts))
-    .pipe(gulp.folder('./dist/'))
+    .pipe(gulp.dest('./dist/'))
 });
 ```
 ### Options
