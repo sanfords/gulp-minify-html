@@ -7,11 +7,11 @@
 </tr>
 <tr>
 <td>Description</td>
-<td>Minify css with <a href="https://github.com/Moveo/minimize">minimize.</a></td>
+<td>Minify HTML with <a href="https://github.com/Moveo/minimize">minimize.</a></td>
 </tr>
 <tr>
 <td>Node Version</td>
-<td>>= 0.8</td>
+<td>>= 0.10</td>
 </tr>
 </table>
 
@@ -21,6 +21,8 @@
 var minifyHTML = require('gulp-minify-html');
 
 gulp.task('minify-html', function() {
+	var opts = {comments:true,spare:true};
+	
   gulp.src('./static/html/*.html')
     .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./dist/'))

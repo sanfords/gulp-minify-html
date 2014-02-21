@@ -1,20 +1,27 @@
-var es = require('event-stream'),
-	Minimize = require('minimize'),
-  clone = require('clone');
+var through = require('through2')
+  , gutil = require('gulp-util')
+	, Minimize = require('minimize');
 
 module.exports = function(opt){
-  if (!opt) opt = {};
-  var minimize = new Minimize(opt);
+  
+  function minimize (file, encoding, callback) {
+    if (file.isNull()) {
+      this.push(file);
+      return callback();
+    }
 
-  function modifyContents(file, cb){
-    var newFile = clone(file);
+    if (file.isStream()) {
+      return callback(new gutil.PluginError('gulp-minify-html', 'doesn\'t support Streams'));
+    }
 
-    minimize.parse(String(newFile.contents), function (error, data) {
-      if (error) throw error;
-      var newContents = data;
-      newFile.contents = new Buffer(newContents);
-      cb(null, newFile);
-    });
+    var minimize = new Minimize(opt || {} );  
+    minimize.parse(String(file.contents), function (err, data) {
+      if (err) return callback(new gutil.PluginError('gulp-minify-html', err));
+      file.contents = new Buffer(data);
+      this.push(file);
+      callback();
+    }.bind(this));
   }
-  return es.map(modifyContents);
+
+  return through.obj(minimize);
 }
