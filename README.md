@@ -28,13 +28,17 @@ gulp.task('minify-html', function() {
     .pipe(gulp.dest('./dist/'))
 });
 ```
-### Options
-* `empty` - `true` do not remove empty attributes (default is `false`).
-* `cdata` - `true` do not strip CDATA from scripts (default is `false`).
-* `comments` - `true` do not remove comments (default is `false`).
-* `spare` - `true` do not remove redundant attributes (default is `false`).
-* `quotes` - `true` do not remove arbitrary quotes (default is `false`).
+#### Options
+All options are `false` by default.
 
+* `empty` - do not remove empty attributes
+* `cdata` - do not strip CDATA from scripts
+* `comments` - do not remove comments
+* `conditionals` - do not remove conditional internet explorer comments
+* `spare` - do not remove redundant attributes
+* `quotes` - do not remove arbitrary quotes
+
+so setting `empty:true` is the same as telling `minifyHTML` "do not remove empty attributes."
 
 ## LICENSE
 
