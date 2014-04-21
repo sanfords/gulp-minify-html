@@ -29,16 +29,16 @@ gulp.task('minify-html', function() {
 });
 ```
 #### Options
-All options are `false` by default.
+All options are `false` by default.  Set `true` for the options you want to keep.
 
-* `empty` - do not remove empty attributes
-* `cdata` - do not strip CDATA from scripts
-* `comments` - do not remove comments
-* `conditionals` - do not remove conditional internet explorer comments
-* `spare` - do not remove redundant attributes
-* `quotes` - do not remove arbitrary quotes
+* `empty` - keep empty attributes
+* `cdata` - keep CDATA in scripts
+* `comments` - keep comments
+* `conditionals` - keep conditional internet explorer comments
+* `spare` - keep redundant attributes
+* `quotes` - keep arbitrary quotes
 
-so setting `empty:true` is the same as telling `minifyHTML` "do not remove empty attributes."
+so setting `empty:true` is the same as telling `minifyHTML` "keep empty attributes."
 
 ## LICENSE
 
